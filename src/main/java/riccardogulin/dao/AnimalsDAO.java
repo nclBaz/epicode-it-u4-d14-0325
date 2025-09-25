@@ -7,6 +7,7 @@ import jakarta.persistence.TypedQuery;
 import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
+import riccardogulin.entities.Owner;
 import riccardogulin.exceptions.NotFoundException;
 
 import java.util.List;
@@ -114,5 +115,17 @@ public class AnimalsDAO {
 		transaction.commit();
 
 		System.out.println(numDeleted + " elementi sono stati cancellati");
+	}
+
+	public List<Animal> findAnimalsByOwner(Owner owner) {
+		TypedQuery<Animal> query = entityManager.createQuery("SELECT a FROM Animal a WHERE a.owner = :owner", Animal.class);
+		query.setParameter("owner", owner);
+		return query.getResultList();
+	}
+
+	public List<Animal> findAnimalsByOwnersName(String name) {
+		TypedQuery<Animal> query = entityManager.createQuery("SELECT a FROM Animal a WHERE a.owner.name = :name", Animal.class);
+		query.setParameter("name", name);
+		return query.getResultList();
 	}
 }

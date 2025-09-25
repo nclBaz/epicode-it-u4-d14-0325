@@ -42,11 +42,13 @@ public class Application {
 
 		// ad.findAllNames().forEach(System.out::println);
 
-		ad.findAllNamesStartingWith("r").forEach(System.out::println);
+//		ad.findAllNamesStartingWith("r").forEach(System.out::println);
+//
+//		ad.findAnimalsByNameAndUpdateName("Felix", "Ringhio2");
+//
+//		ad.findAnimalsByNameAndDelete("Rex");
 
-		ad.findAnimalsByNameAndUpdateName("Felix", "Ringhio2");
-
-		ad.findAnimalsByNameAndDelete("Rex");
+		ad.findAnimalsByOwnersName("Giacomo").forEach(System.out::println);
 		em.close();
 		emf.close();
 

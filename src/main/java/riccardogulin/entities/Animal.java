@@ -48,6 +48,11 @@ public abstract class Animal {
 	protected String name;
 	protected int age;
 
+
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	protected Owner owner;
+
 	public Animal() {
 	}
 
