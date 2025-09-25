@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "animals")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 // @DiscriminatorColumn(name = "animal_type") // OPZIONALE. Serve per personalizzare il nome della Discriminator Column (di default si chiama DTYPE)
 /*
 SINGLE TABLE: è la strategia più semplice perché genererà un'unica tabella contenente tutti gli animali (nel nostro caso Cat e Dog)
@@ -38,6 +38,8 @@ sarebbe possibile in quanto una relazione è sempre tra tabella A e tabella B, n
 
 
 * */
+@NamedQuery(name = "findAllNames", query = "SELECT a.name FROM Animal a")
+// Le named queries oltre a poter essere riutilizzate quante volte vogliamo hanno anche il vantaggio di venir controllate all'avvio dell'applicazione
 public abstract class Animal {
 	@Id
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)

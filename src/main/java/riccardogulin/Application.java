@@ -37,7 +37,16 @@ public class Application {
 			System.out.println(ex.getMessage());
 		}
 
+		//ad.findAllAnimals().forEach(System.out::println);
+		// ad.findAllCats().forEach(System.out::println);
 
+		// ad.findAllNames().forEach(System.out::println);
+
+		ad.findAllNamesStartingWith("r").forEach(System.out::println);
+
+		ad.findAnimalsByNameAndUpdateName("Felix", "Ringhio2");
+
+		ad.findAnimalsByNameAndDelete("Rex");
 		em.close();
 		emf.close();
 
