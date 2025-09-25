@@ -4,8 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardogulin.dao.AnimalsDAO;
+import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
+import riccardogulin.exceptions.NotFoundException;
 
 public class Application {
 
@@ -20,10 +22,21 @@ public class Application {
 		Cat tom = new Cat("Tom", 4, 1);
 		Dog rex = new Dog("Rex", 6, 10);
 
-		ad.save(felix);
-		ad.save(ringhio);
-		ad.save(tom);
-		ad.save(rex);
+//		ad.save(felix);
+//		ad.save(ringhio);
+//		ad.save(tom);
+//		ad.save(rex);
+
+		try {
+
+			Animal animalFromDB = ad.findById(2);
+			System.out.println(animalFromDB);
+
+			Cat catFromDB = ad.findCatById(2);
+			System.out.println(catFromDB);
+		} catch (NotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
 
 
 		em.close();

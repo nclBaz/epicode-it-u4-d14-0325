@@ -17,6 +17,8 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <!-- Quest'impostazione chiede a Hibernate di crearci le tabelle (se non esistono ancora) all' avvio dell'applicazione
                  oppure aggiornarle se necessario -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
