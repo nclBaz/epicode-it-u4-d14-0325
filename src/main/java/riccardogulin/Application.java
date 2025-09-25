@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardogulin.dao.AnimalsDAO;
-import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
 import riccardogulin.exceptions.NotFoundException;
@@ -29,8 +28,8 @@ public class Application {
 
 		try {
 
-			Animal animalFromDB = ad.findById(2);
-			System.out.println(animalFromDB);
+//			Animal animalFromDB = ad.findById(2);
+//			System.out.println(animalFromDB);
 
 			Cat catFromDB = ad.findCatById(2);
 			System.out.println(catFromDB);

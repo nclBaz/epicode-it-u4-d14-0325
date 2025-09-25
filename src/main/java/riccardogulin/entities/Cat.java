@@ -1,10 +1,9 @@
 package riccardogulin.entities;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Gatto")
+// @DiscriminatorValue("Gatto")
 // OPZIONALE. Serve per personalizzare il nome inserito all'interno della Discriminator Column ( di default è il nome della classe)
 public class Cat extends Animal {
 	private double maxJumpHeight;
